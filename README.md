@@ -1,0 +1,1 @@
+This is an attempt to adapt the digit recognition neural network written by Michael Nielsen (https://github.com/mnielsen/neural-networks-and-deep-learning) to TypeScript. Done for learning purposes.
