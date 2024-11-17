@@ -141,11 +141,11 @@ function drawDigitEvaluationOnCanvas({
 }
 
 // Function to handle feeding test data forward
-// TODO: change amountSampleUnits name to sample
-function handleSubmitAmountSampleUnits(amountSampleUnits: number, net: Network) {
+function handleSubmitAmountSampleUnits(
+  amountSampleUnits: number,
+  net: Network
+) {
   const { modelTestData, mnistTestData } = loadData();
-
-  console.log(`Test data length: ${mnistTestData.length}`)
 
   // Create the test sample based on amount of amount of sample units selected
   const testSample = modelTestData.slice(0, amountSampleUnits);
