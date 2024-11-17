@@ -4,6 +4,13 @@ import { shuffle, sigmoid, sigmoidPrime } from "./Network.utils";
 type LayerSizes = Array<number>;
 type Data = Array<[tf.Tensor2D, tf.Tensor2D]>;
 type TestData = Array<[tf.Tensor2D, number]>;
+export type Model = {
+  biases: Array<Array<Array<number>>>;
+  weights: {
+    shape: [number, number];
+    data: Array<Array<number>>;
+  }[];
+};
 
 export class Network {
   numberOfLayers: number;
@@ -190,5 +197,15 @@ export class Network {
       return predicted.dataSync()[0] === actual;
     });
     return testResults.reduce((acc, result) => acc + (result ? 1 : 0), 0);
+  }
+
+  exportModel(): Model {
+    return {
+      biases: this.biases.map((b) => b.arraySync()),
+      weights: this.weights.map((w) => ({
+        shape: w.shape,
+        data: w.arraySync(),
+      })),
+    };
   }
 }

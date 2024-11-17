@@ -17,4 +17,8 @@ declare module "mnist" {
   };
 
   export function set(trainingAmount: number, testAmount: number): MnistData;
+  export function draw(
+    digit: DataSet["input"],
+    context: CanvasRenderingContext2D
+  ): void;
 }

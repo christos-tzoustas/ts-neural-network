@@ -118,10 +118,10 @@ This project is licensed under the MIT License.
 
 ```typescript
 import { Network } from './Network';
-import { loadDataWrapper } from './mnistLoader';
+import { loadData } from './mnistLoader';
 
 // Load the data
-const { trainingData, testData } = loadDataWrapper();
+const { trainingData, testData } = loadData();
 
 // Initialize the network
 const net = new Network([784, 30, 10]);
